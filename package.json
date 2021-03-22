@@ -13,7 +13,7 @@
   "scripts": {
     "compile": "rm -rf lib && tsc -p .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "yarn compile",
+    "prepare": "yarn compile && cd examples/expo && yarn add ../../",
     "test": "jest"
   },
   "devDependencies": {

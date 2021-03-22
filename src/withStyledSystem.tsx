@@ -13,10 +13,35 @@ import {
   typography,
 } from 'styled-system'
 
-import StyledSystemPropTypes from './StyledSystemPropTypes'
+import StyledSystemPropTypes, {
+  ColorsPropTypes,
+  ScaledPropTypes,
+} from './StyledSystemPropTypes'
+import { ScaledValuesKeys, ThemeType } from './themes'
+import { ColorsEnum } from './themes/Light'
 
-const withStyledSystem = (Component: any) => {
-  const StyledComponent = styled(Component)`
+type AttributesProps = {
+  theme: ThemeType
+  [key: string]: any
+}
+type AttributesFunction = (props: AttributesProps) => { [key: string]: any }
+
+type ScaledKeys = keyof typeof ScaledPropTypes
+type ScaledProps = {
+  [key in ScaledKeys]: ScaledValuesKeys
+}
+type ColorsValues = keyof typeof ColorsEnum
+type ColorsKeys = keyof typeof ColorsPropTypes
+type ColorsProps = {
+  [key in ColorsKeys]: ColorsValues
+}
+type ComponentProps = ScaledProps | ColorsProps | { [key: string]: any }
+
+const withStyledSystem = (
+  Component: any,
+  attrs: AttributesFunction = () => ({})
+) => {
+  const StyledComponent = styled(Component).attrs(attrs)`
     ${flexbox}
     ${space}
     ${color}
@@ -29,7 +54,7 @@ const withStyledSystem = (Component: any) => {
     ${background}
   `
 
-  const MyComponent = (props: any) => <StyledComponent {...props} />
+  const MyComponent = (props: ComponentProps) => <StyledComponent {...props} />
 
   MyComponent.propTypes = {
     ...StyledSystemPropTypes,

@@ -1,6 +1,9 @@
 import * as PropTypes from 'prop-types'
 
-const StyledSystemPropTypes = {
+// organized by the Theme Field defined here https://styled-system.com/table/
+
+export const ScaledPropTypes = {
+  // Space
   /** margin */
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** margin */
@@ -57,29 +60,7 @@ const StyledSystemPropTypes = {
   paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** padding top and bottom */
   py: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /** color */
-  color: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** background color */
-  backgroundColor: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** background color */
-  bg: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /** font size */
-  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** font family */
-  fontFamily: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** text align */
-  textAlign: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** line height */
-  lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** font weight */
-  fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** letter spacing */
-  letterSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** font style */
-  fontStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
+  // Layout
   /** width */
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** height */
@@ -92,19 +73,93 @@ const StyledSystemPropTypes = {
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** maximum height */
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** display */
-  display: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** size */
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** vertical align */
-  verticalAlign: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** overflow */
-  overflow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** overflow x axis */
-  overflowX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** overflow y axis */
-  overflowY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  // Typography
+  /** font size */
+  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** line height */
+  lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  // Grid Layout
+  /** grid gap */
+  gridGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** grid row gap */
+  gridRowGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** grid column gap */
+  gridColumnGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  // Position
+  /** top */
+  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** right */
+  right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** bottom */
+  bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** left */
+  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  // Border
+  /** border radius */
+  borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** border top left radius */
+  borderTopLeftRadius: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  /** border top right radius */
+  borderTopRightRadius: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  /** border bottom left radius */
+  borderBottomLeftRadius: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  /** border bottom right radius */
+  borderBottomRightRadius: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  // Position
+  /** zIndex */
+  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  // Shadow
+  /** text shadow */
+  textShadow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** box shadow */
+  boxShadow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
+export const ColorsPropTypes = {
+  /** color */
+  color: PropTypes.oneOfType([PropTypes.string]),
+  /** background color */
+  backgroundColor: PropTypes.oneOfType([PropTypes.string]),
+  /** background color */
+  bg: PropTypes.oneOfType([PropTypes.string]),
+  /** border color */
+  borderColor: PropTypes.oneOfType([PropTypes.string]),
+  /** border top color */
+  borderTopColor: PropTypes.oneOfType([PropTypes.string]),
+  /** border right color */
+  borderRightColor: PropTypes.oneOfType([PropTypes.string]),
+  /** border bottom color */
+  borderBottomColor: PropTypes.oneOfType([PropTypes.string]),
+  /** border left color */
+  borderLeftColor: PropTypes.oneOfType([PropTypes.string]),
+}
+
+export const TypographyPropTypes = {
+  /** font family */
+  fontFamily: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** text align */
+  textAlign: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** font weight */
+  fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** letter spacing */
+  letterSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** font style */
+  fontStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
+
+const FlexboxPropTypes = {
   /** align items */
   alignItems: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** align self */
@@ -131,20 +186,12 @@ const StyledSystemPropTypes = {
   flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** order */
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /** grid gap */
-  gridGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /** position */
-  position: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** top */
-  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** right */
-  right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** bottom */
-  bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** left */
-  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
+const StyledSystemPropTypes = {
+  ...ScaledPropTypes,
+  ...ColorsPropTypes,
+  ...TypographyPropTypes,
+  ...FlexboxPropTypes,
 }
 
 export default StyledSystemPropTypes

@@ -3,11 +3,6 @@ import Light from './Light'
 // start with default colors
 const Colors = { ...Light }
 
-// // color functions
-// Colors.rgba = (r,g,b,a) => `rgba(${r}, ${g}, ${b}, ${a})`;
-// Colors.rgb = (r,g,b) => Colors.rgba(r,g,b,1);
-// Colors.gray = (v, a) => Colors.rgba(v,v,v, a || 1);
-
 // // constant colors
 // Colors.primary = '#2196f3';
 // Colors.primary2 = '#42a5f5';

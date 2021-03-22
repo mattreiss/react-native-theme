@@ -1,55 +1,51 @@
+export enum ColorsEnum {
+  primary,
+  primary2,
+  primary3,
+  primary4,
+  primary5,
+  primary6,
+  greyscale1,
+  greyscale2,
+  greyscale3,
+  greyscale4,
+  greyscale5,
+  greyscale6,
+  white,
+  black,
+  danger,
+  success,
+  success1,
+  success2,
+  success3,
+  waring,
+  warning1,
+  warning2,
+  warning3,
+  google,
+  dark,
+  negative,
+  light,
+  bg1,
+  bg2,
+  bg3,
+  text1,
+  text2,
+  text3,
+  background,
+  card,
+  text,
+  border,
+  notification,
+}
+
+type Colors = keyof typeof ColorsEnum
+
 export type ColorsType = {
-  rgba: (r: number, g: number, b: number, a: number) => string
-  rgb: (r: number, g: number, b: number) => string
-  gray: (v: number, a: number | undefined) => string
-  primary: string
-  primary2: string
-  primary3: string
-  primary4: string
-  primary5: string
-  primary6: string
-  greyscale1: string
-  greyscale2: string
-  greyscale3: string
-  greyscale4: string
-  greyscale5: string
-  greyscale6: string
-  white: string
-  black: string
-  danger: string
-  success: string
-  success1: string
-  success2: string
-  success3: string
-  waring: string
-  warning1: string
-  warning2: string
-  warning3: string
-  google: string
-  dark: string
-  negative: string
-  light: string
-  bg1: string
-  bg2: string
-  bg3: string
-  text1: string
-  text2: string
-  text3: string
-  background: string
-  card: string
-  text: string
-  border: string
-  notification: string
+  [key in Colors | string]: string
 }
 
 const Colors: any = {}
-
-// color functions
-Colors.rgba = (r: number, g: number, b: number, a: number) =>
-  `rgba(${r}, ${g}, ${b}, ${a})`
-Colors.rgb = (r: number, g: number, b: number) => `rgb(${r}, ${g}, ${b})`
-Colors.gray = (v: number, a: number | undefined) =>
-  `rgba(${v}, ${v}, ${v}, ${a || 1})`
 
 // constant colors
 Colors.primary = '#2196f3'
