@@ -1,6 +1,6 @@
 {
   "name": "@mattreiss/react-native-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native Theme",
   "homepage": "https://github.com/mattreiss/react-native-theme",
   "main": "lib/index.js",
@@ -13,7 +13,8 @@
   "scripts": {
     "compile": "rm -rf lib && tsc -p .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "yarn compile && cd examples/expo && yarn add ../../",
+    "prepare": "yarn compile",
+    "ios": "yarn compile && cd examples/expo && yarn add ../../ && yarn ios",
     "test": "jest"
   },
   "devDependencies": {

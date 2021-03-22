@@ -64,3 +64,11 @@ export default function App() {
   )
 }
 ```
+
+## Run Example
+```
+git clone git@github.com:mattreiss/react-native-theme.git
+cd react-native-theme
+yarn
+yarn ios
+```
