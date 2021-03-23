@@ -1646,8 +1646,8 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
-"@mattreiss/react-native-theme@../../":
-  version "1.0.0"
+"@mattreiss/react-native-theme@../../lib":
+  version "1.0.1"
   dependencies:
     prop-types "^15.7.2"
     styled-components "^5.2.1"

@@ -5,6 +5,10 @@ import { ThemeProvider } from 'styled-components/native'
 
 import Theme, { ColorSchemeType } from './themes'
 
+export const ThemeContext = React.createContext({
+  theme: Theme.getTheme('light'),
+})
+
 interface IProps {
   children: ReactNode
   theme: ColorSchemeType | object
@@ -13,7 +17,11 @@ interface IProps {
 function MyThemeProvider({ children, theme }: IProps) {
   const currentTheme =
     typeof theme === 'object' ? Theme.extend(theme) : Theme.getTheme(theme)
-  return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
+  return (
+    <ThemeContext.Provider value={{ theme: currentTheme }}>
+      <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
+    </ThemeContext.Provider>
+  )
 }
 
 MyThemeProvider.propTypes = {

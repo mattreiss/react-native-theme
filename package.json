@@ -14,7 +14,7 @@
     "compile": "rm -rf lib && tsc -p .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prepare": "yarn compile",
-    "ios": "yarn compile && cd examples/expo && yarn add ../../ && yarn ios",
+    "ios": "yarn compile && sed 's/lib/./g' package.json > lib/package.json && cd examples/expo && yarn add ../../lib && yarn ios",
     "test": "jest"
   },
   "devDependencies": {

@@ -39,7 +39,7 @@ export default function App() {
             React Native Theme
           </Text>
           <MyTextInput
-            bg='red'
+            bg='white'
             color='text1'
             placeholderTextColor='negative'
             placeholder='enter info'
