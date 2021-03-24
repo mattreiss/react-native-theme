@@ -1,20 +1,33 @@
-import Components, {
+import {
+  Button,
+  Input,
+  Text,
   ThemeProvider,
+  View,
   withStyledSystem,
 } from '@mattreiss/react-native-theme'
 import React from 'react'
-import { Image, TextInput } from 'react-native'
+import { Image } from 'react-native'
 
-const { View, Text } = Components
-
-const myTheme = {
+const lightTheme = {
   colors: {
-    primary: 'green',
+    bg: 'white',
+    text: 'black',
     myFavColor: 'purple',
   },
   images: {
-    milkyway: 'https://bit.ly/3scFTQY',
-    sunset: 'https://shorturl.at/iAFW6',
+    main: 'https://shorturl.at/iAFW6',
+  },
+}
+
+const darkTheme = {
+  colors: {
+    bg: 'black',
+    text: 'white',
+    myFavColor: 'purple',
+  },
+  images: {
+    main: 'https://bit.ly/3scFTQY',
   },
 }
 
@@ -22,35 +35,45 @@ const MyImage = withStyledSystem(Image, (p) => ({
   source: p.name ? { uri: p.theme.images[p.name] } : p.source,
 }))
 
-const MyTextInput = withStyledSystem(TextInput, (p) => ({
-  placeholderTextColor:
-    p.theme.colors[p.placeholderTextColor || p.color] ||
-    p.placeholderTextColor ||
-    p.color,
-}))
-
 export default function App() {
+  const [info, setInfo] = React.useState('')
+  const [theme, setTheme] = React.useState('light')
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
   return (
-    <ThemeProvider theme={myTheme}>
-      <View flex={1} bg='bg3' alignItems='center' justifyContent='center'>
-        <MyImage name='sunset' width='windowWidth' height='windowWidth' />
-        <View bg='primary' borderRadius='xl' mt='md' p='md'>
-          <Text color='myFavColor' p='md'>
-            React Native Theme
-          </Text>
-          <MyTextInput
-            bg='white'
-            color='text1'
-            placeholderTextColor='negative'
-            placeholder='enter info'
-            fontSize='md'
-            p='md'
-            minWidth='xl'
-            borderRadius='md'
-            multiline={false}
-            numberOfLines={1}
-            returnKeyType='done'
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <View flex={1} bg='bg' alignItems='center' justifyContent='center'>
+        <View bg='primary' borderRadius='xl' p='md'>
+          <Text color='myFavColor'>React Native Theme</Text>
+          <MyImage
+            alignSelf='center'
+            name='main'
+            width='xl5'
+            height='xl5'
+            my='sm'
           />
+          <Input
+            bg='bg'
+            color='text'
+            placeholderTextColor='negative'
+            placeholder='Enter Info'
+            value={info}
+            onChangeText={setInfo}
+          />
+          <Button
+            p='xs'
+            mt='xs'
+            bg='myFavColor'
+            color='white'
+            onPress={toggleTheme}
+          >
+            Toggle Theme
+          </Button>
         </View>
       </View>
     </ThemeProvider>

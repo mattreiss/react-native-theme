@@ -1,6 +1,6 @@
 {
   "name": "@mattreiss/react-native-theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Native Theme",
   "homepage": "https://github.com/mattreiss/react-native-theme",
   "main": "lib/index.js",
@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
+    "react-native-swipe-list-view": "^3.2.6",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
   }

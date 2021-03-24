@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types'
 
-// organized by the Theme Field defined here https://styled-system.com/table/
+// https://styled-system.com/table/
 
 export const ScaledPropTypes = {
   // Space

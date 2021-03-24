@@ -23,25 +23,38 @@ export default function App() {
   )
 }
 ```
-Here is a more complex example showing how to provide a custom theme and how to use the `withStyledSystem` function to connect props to the theme.
+Here is a more complex example showing how to provide custom themes and how to use the `withStyledSystem` function to connect props to the theme.
 ```
-import Components, {
+import {
+  Button,
+  Input,
+  Text,
   ThemeProvider,
+  View,
   withStyledSystem,
 } from '@mattreiss/react-native-theme'
 import React from 'react'
 import { Image } from 'react-native'
 
-const { View, Text } = Components
-
-const myTheme = {
+const lightTheme = {
   colors: {
-    primary: 'green',
+    bg: 'white',
+    text: 'black',
     myFavColor: 'purple',
   },
   images: {
-    milkyway: 'https://bit.ly/3scFTQY',
-    sunset: 'https://shorturl.at/iAFW6',
+    main: 'https://shorturl.at/iAFW6',
+  },
+}
+
+const darkTheme = {
+  colors: {
+    bg: 'black',
+    text: 'white',
+    myFavColor: 'purple',
+  },
+  images: {
+    main: 'https://bit.ly/3scFTQY',
   },
 }
 
@@ -50,14 +63,44 @@ const MyImage = withStyledSystem(Image, (p) => ({
 }))
 
 export default function App() {
+  const [info, setInfo] = React.useState('')
+  const [theme, setTheme] = React.useState('light')
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
   return (
-    <ThemeProvider theme={myTheme}>
-      <View flex={1} bg='bg3' alignItems='center' justifyContent='center'>
-        <MyImage name='sunset' width='windowWidth' height='windowWidth' />
-        <View bg='primary' borderRadius='xl' mt='md'>
-          <Text color='myFavColor' p='md'>
-            React Native Theme
-          </Text>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <View flex={1} bg='bg' alignItems='center' justifyContent='center'>
+        <View bg='primary' borderRadius='xl' p='md'>
+          <Text color='myFavColor'>React Native Theme</Text>
+          <MyImage
+            alignSelf='center'
+            name='main'
+            width='xl5'
+            height='xl5'
+            my='sm'
+          />
+          <Input
+            bg='bg'
+            color='text'
+            placeholderTextColor='negative'
+            placeholder='Enter Info'
+            value={info}
+            onChangeText={setInfo}
+          />
+          <Button
+            p='xs'
+            mt='xs'
+            bg='myFavColor'
+            color='white'
+            onPress={toggleTheme}
+          >
+            Toggle Theme
+          </Button>
         </View>
       </View>
     </ThemeProvider>

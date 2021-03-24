@@ -1,7 +1,7 @@
 import { Dimensions, Platform } from 'react-native'
 
-import Dark from './Dark'
-import Light, { ColorsType } from './Light'
+import Dark from './colors/Dark'
+import Light, { ColorsType } from './colors/Light'
 
 export type StringOrNumber = string | number
 
@@ -72,6 +72,14 @@ const WebTheme: ThemeType = {
     lg: '3rem', // 48px
     xl: '4rem', // 64px
     xxl: '5rem', // 80px,
+    xl3: '6rem',
+    xl4: '7rem',
+    xl5: '8rem',
+    xl6: '9rem',
+    xl7: '10rem',
+    xl8: '11rem',
+    xl9: '12rem',
+    xl10: '13rem',
     windowWidth: window.width,
     windowHeight: window.height,
     screenWidth: screen.width,
@@ -177,6 +185,14 @@ const MobileTheme: ThemeType = {
     lg: 64,
     xl: 80,
     xxl: 120,
+    xl3: 180,
+    xl4: 240,
+    xl5: 320,
+    xl6: 480,
+    xl7: 640,
+    xl8: 720,
+    xl9: 960,
+    xl10: 1080,
   },
   // typography
   fontSizes: {
@@ -242,7 +258,7 @@ const DarkTheme: ThemeType = {
 }
 
 class Theme {
-  static getTheme(colorScheme: ColorSchemeType | null) {
+  static getTheme(colorScheme: string) {
     switch (colorScheme) {
       case LightTheme.colorScheme:
         return LightTheme

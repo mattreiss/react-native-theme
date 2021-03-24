@@ -1,4 +1,4 @@
-import withStyledSystem from './withStyledSystem'
+import withStyledSystem from './functions/withStyledSystem'
 
 const reactNative = require('react-native')
 

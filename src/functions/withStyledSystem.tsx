@@ -16,11 +16,11 @@ import {
 import StyledSystemPropTypes, {
   ColorsPropTypes,
   ScaledPropTypes,
-} from './StyledSystemPropTypes'
-import { ScaledValuesKeys, ThemeType } from './themes'
-import { ColorsEnum } from './themes/Light'
+} from '../constants/StyledSystemPropTypes'
+import { ScaledValuesKeys, ThemeType } from '../theme'
+import { ColorsEnum } from '../theme/colors/Light'
 
-type AttributesProps = {
+export type AttributesProps = {
   theme: ThemeType
   [key: string]: any
 }
@@ -35,7 +35,8 @@ type ColorsKeys = keyof typeof ColorsPropTypes
 type ColorsProps = {
   [key in ColorsKeys]: ColorsValues
 }
-type ComponentProps = ScaledProps | ColorsProps | { [key: string]: any }
+
+export type ComponentProps = ScaledProps | ColorsProps | { [key: string]: any }
 
 const withStyledSystem = (
   Component: any,
