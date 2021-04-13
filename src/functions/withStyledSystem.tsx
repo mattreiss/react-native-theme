@@ -55,7 +55,9 @@ const withStyledSystem = (
     ${background}
   `
 
-  const MyComponent = (props: ComponentProps) => <StyledComponent {...props} />
+  const MyComponent = React.forwardRef((props: ComponentProps, ref) => (
+    <StyledComponent {...props} {...{ ref }} />
+  ))
 
   MyComponent.propTypes = {
     ...StyledSystemPropTypes,
