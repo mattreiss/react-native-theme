@@ -3,32 +3,6 @@ import Light from './Light'
 // start with default colors
 const Colors = { ...Light }
 
-// // constant colors
-// Colors.primary = '#2196f3';
-// Colors.primary2 = '#42a5f5';
-// Colors.primary3 = '#64b5f6';
-// Colors.primary4 = '#90caf9';
-// Colors.primary5 = '#bbdefb';
-// Colors.primary6 = '#e3f2fd';
-// Colors.greyscale1 = '#212121';
-// Colors.greyscale2 = '#424242';
-// Colors.greyscale3 = '#757575';
-// Colors.greyscale4 = '#9e9e9e';
-// Colors.greyscale5 = '#bdbdbd';
-// Colors.greyscale6 = '#eeeeee';
-// Colors.white = '#fafafa';
-// Colors.black = '#010101';
-// Colors.danger = '#f44336';
-// Colors.success = '#81c784';
-// Colors.success1 = '#A5D6A7';
-// Colors.success2 = '#C8E6C9';
-// Colors.success3 = '#E8F5E9';
-// Colors.warning = '#FFEE58';
-// Colors.warning1 = '#FFF176';
-// Colors.warning2 = '#FFF59D';
-// Colors.warning3 = '#FFFDE7';
-// Colors.google = '#db3236';
-
 // variable colors
 Colors.dark = Colors.greyscale1
 Colors.light = Colors.greyscale2

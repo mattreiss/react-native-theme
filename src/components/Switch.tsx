@@ -7,9 +7,9 @@ import withStyledSystem, {
 } from '../functions/withStyledSystem'
 
 const StyledSwitch = withStyledSystem(Switch, (p: AttributesProps) => ({
-  trackColor: p.theme.colors[p.trackColor || p.color],
-  thumbColor: p.theme.colors[p.thumbColor || p.color],
-  ios_backgroundColor: p.theme.colors[p.bg],
+  trackColor: p.theme.colors[p.trackColor] || p.trackColor,
+  thumbColor: p.theme.colors[p.thumbColor] || p.thumbColor,
+  ios_backgroundColor: p.theme.colors[p.bg] || p.bg,
 }))
 
 const SwitchProps = {
@@ -22,7 +22,7 @@ const SwitchProps = {
 
 const MySwitch = (props: InferProps<typeof SwitchProps>) => (
   <StyledSwitch
-    bg='bg3'
+    bg='transparent'
     color='text3'
     trackColor='text3'
     thumbColor='text3'

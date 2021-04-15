@@ -1,7 +1,7 @@
 import {
   Button,
-  Input,
   Text,
+  TextInput,
   ThemeProvider,
   View,
   withStyledSystem,
@@ -36,6 +36,7 @@ const MyImage = withStyledSystem(Image, (p) => ({
 }))
 
 export default function App() {
+  const inputRef = React.createRef<any>()
   const [info, setInfo] = React.useState('')
   const [theme, setTheme] = React.useState('light')
   const toggleTheme = () => {
@@ -44,26 +45,28 @@ export default function App() {
     } else {
       setTheme('light')
     }
+    inputRef.current.focus()
   }
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <View flex={1} bg='bg' alignItems='center' justifyContent='center'>
         <View bg='primary' borderRadius='xl' p='md'>
           <Text color='myFavColor'>React Native Theme</Text>
+          <TextInput
+            ref={inputRef}
+            bg='bg'
+            color='text'
+            placeholderColor='negative'
+            placeholder='Enter Info'
+            value={info}
+            onChangeText={setInfo}
+          />
           <MyImage
             alignSelf='center'
             name='main'
             width='xl5'
             height='xl5'
             my='sm'
-          />
-          <Input
-            bg='bg'
-            color='text'
-            placeholderTextColor='negative'
-            placeholder='Enter Info'
-            value={info}
-            onChangeText={setInfo}
           />
           <Button
             p='xs'

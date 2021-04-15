@@ -36,7 +36,11 @@ type ColorsProps = {
   [key in ColorsKeys]: ColorsValues
 }
 
-export type ComponentProps = ScaledProps | ColorsProps | { [key: string]: any }
+export type ComponentProps = { innerRef?: React.ForwardedRef<unknown> } & (
+  | ScaledProps
+  | ColorsProps
+  | { [key: string]: any }
+)
 
 const withStyledSystem = (
   Component: any,
@@ -54,10 +58,9 @@ const withStyledSystem = (
     ${position}
     ${background}
   `
-
-  const MyComponent = React.forwardRef((props: ComponentProps, ref) => (
-    <StyledComponent {...props} {...{ ref }} />
-  ))
+  const MyComponent = (props: ComponentProps) => (
+    <StyledComponent {...props} ref={props.innerRef} />
+  )
 
   MyComponent.propTypes = {
     ...StyledSystemPropTypes,
