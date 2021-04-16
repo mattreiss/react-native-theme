@@ -25,7 +25,10 @@ const ViewProps = {
 
 const MyView = (props: InferProps<typeof ViewProps>) => {
   return (
-    <StyledView style={props.hasShadow && shadowStyle} {...props}>
+    <StyledView
+      {...props}
+      style={[props.style, props.hasShadow ? shadowStyle : {}]}
+    >
       {props.children}
     </StyledView>
   )
