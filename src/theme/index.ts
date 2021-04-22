@@ -245,13 +245,13 @@ const MobileTheme: ThemeType = {
 
 export const DefaultTheme = Platform.OS === 'web' ? WebTheme : MobileTheme
 
-const LightTheme: ThemeType = {
+export const LightTheme: ThemeType = {
   ...DefaultTheme,
   colorScheme: 'light',
   colors: Light,
 }
 
-const DarkTheme: ThemeType = {
+export const DarkTheme: ThemeType = {
   ...DefaultTheme,
   colorScheme: 'dark',
   colors: Dark,
@@ -269,9 +269,10 @@ class Theme {
     }
   }
 
-  static extend(theme: { [key: string]: any }) {
+  static extend(theme: { [key: string]: any }, colorScheme = 'light') {
+    const baseTheme = colorScheme === 'light' ? LightTheme : DarkTheme
     const CustomTheme: ThemeType = {
-      ...DefaultTheme,
+      ...baseTheme,
     }
     Object.keys(theme).forEach((field) => {
       if (typeof theme[field] === typeof DefaultTheme[field]) {

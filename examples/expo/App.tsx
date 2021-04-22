@@ -1,5 +1,6 @@
 import {
   Button,
+  Dropdown,
   Text,
   TextInput,
   ThemeProvider,
@@ -38,9 +39,9 @@ const MyImage = withStyledSystem(Image, (p) => ({
 export default function App() {
   const inputRef = React.createRef<any>()
   const [info, setInfo] = React.useState('')
-  const [theme, setTheme] = React.useState('light')
+  const [colorScheme, setTheme] = React.useState('light')
   const toggleTheme = () => {
-    if (theme === 'light') {
+    if (colorScheme === 'light') {
       setTheme('dark')
     } else {
       setTheme('light')
@@ -48,13 +49,16 @@ export default function App() {
     inputRef.current.focus()
   }
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider
+      theme={colorScheme === 'light' ? lightTheme : darkTheme}
+      colorScheme={colorScheme}
+    >
       <View flex={1} bg='bg' alignItems='center' justifyContent='center'>
         <View bg='primary' borderRadius='xl' p='md'>
           <Text color='myFavColor'>React Native Theme</Text>
           <TextInput
             ref={inputRef}
-            bg='bg'
+            bg='bg3'
             color='text'
             placeholderColor='negative'
             placeholder='Enter Info'
@@ -77,6 +81,18 @@ export default function App() {
           >
             Toggle Theme
           </Button>
+          <Dropdown
+            bg='bg1'
+            color='green'
+            bgActive='red'
+            label='Selection'
+            onChange={() => {}}
+            value={{ id: 0 }}
+            options={[
+              { id: 0, name: '1' },
+              { id: 1, name: '2' },
+            ]}
+          />
         </View>
       </View>
     </ThemeProvider>

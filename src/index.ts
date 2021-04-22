@@ -7,20 +7,24 @@ import List from './components/List'
 import Switch from './components/switch'
 import Text from './components/Text'
 import TextInput from './components/TextInput'
-import ThemeProvider from './components/ThemeProvider'
+import ThemeProvider, { ThemeContext } from './components/ThemeProvider'
 import View from './components/View'
 import withStyledSystem from './functions/withStyledSystem'
+import { DarkTheme, LightTheme } from './theme'
 
 export default Components
 export {
   ActivityIndicator,
   Button,
+  DarkTheme,
   Dropdown,
   Image,
+  LightTheme,
   List,
   Switch,
   Text,
   TextInput,
+  ThemeContext,
   ThemeProvider,
   View,
   withStyledSystem,

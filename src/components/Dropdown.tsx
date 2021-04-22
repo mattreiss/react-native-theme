@@ -1,30 +1,31 @@
-import PropTypes, { InferProps } from 'prop-types'
 import * as React from 'react'
 import { ScrollView, TouchableOpacity } from 'react-native'
 
 import withStyledSystem from '../functions/withStyledSystem'
 import Text from './Text'
+import View from './View'
 
 const StyledScrollView = withStyledSystem(ScrollView)
 const StyledTouchableOpacity = withStyledSystem(TouchableOpacity)
 
-const DropdownProps = {
-  ...StyledTouchableOpacity.propTypes,
+type DropdownValueType = { id: string | number; name: string }
+
+type DropdownProps = typeof Text.propTypes & {
   /** disable the button */
-  disabled: PropTypes.bool,
+  disabled: boolean
   /** value of dropdown */
-  value: PropTypes.object,
-  /** no shadow for the button */
-  noShadow: PropTypes.bool,
+  value: DropdownValueType
   /** callback function when pressed */
-  onPress: PropTypes.func,
+  onPress: () => {}
   /** callback function on change value */
-  onChange: PropTypes.func,
+  onChange: (value: object) => {}
   /** options  */
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options?: any
+  /** bacgroundColor of active selection */
+  bgActive?: string
 }
 
-const Dropdown = (props: InferProps<typeof DropdownProps>) => {
+const Dropdown = (props: DropdownProps) => {
   const [showDropdown, setShowDropdown] = React.useState(false)
   const [value, setValue] = React.useState<any>(null)
 
@@ -52,19 +53,6 @@ const Dropdown = (props: InferProps<typeof DropdownProps>) => {
     }
   }
 
-  const style = props.noShadow
-    ? {}
-    : {
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 3,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-      }
-
   const radiusProps = showDropdown
     ? {
         borderBottomLeftRadius: 0,
@@ -75,23 +63,22 @@ const Dropdown = (props: InferProps<typeof DropdownProps>) => {
   const placeholder = props.placeholder || 'Select an option'
 
   return (
-    <>
+    <View>
       {props.label && (
         <Text mb='xxs' color='negative' textAlign='left'>
           {props.label}
         </Text>
       )}
       <StyledTouchableOpacity
-        style={style}
         p='xs'
         borderRadius='md'
         fontSize='md'
         textAlign='center'
         justifyContent='center'
         alignItems='center'
-        bg={props.disabled ? 'negative' : props.bg || 'bg3'}
         {...props}
         {...radiusProps}
+        bg={props.disabled ? 'negative' : props.bg || 'bg3'}
         flexDirection='row'
         onPress={onPress}
       >
@@ -99,7 +86,7 @@ const Dropdown = (props: InferProps<typeof DropdownProps>) => {
           flex='1'
           textAlign='center'
           fontSize={props.fontSize || 'md'}
-          color={props.color || value ? 'text' : 'text3'}
+          color={props.color || (value ? 'text' : 'text3')}
           opacity={showDropdown ? 0.5 : 1}
         >
           {showDropdown
@@ -111,10 +98,9 @@ const Dropdown = (props: InferProps<typeof DropdownProps>) => {
       </StyledTouchableOpacity>
       {showDropdown && (
         <StyledScrollView
-          style={style}
-          bg='bg3'
+          bg={props.disabled ? 'negative' : props.bg || 'bg3'}
           textAlign='center'
-          maxHeight='mdW'
+          maxHeight='windowWidth'
           borderRadius='md'
           borderTopRightRadius={0}
           borderTopLeftRadius={0}
@@ -127,7 +113,11 @@ const Dropdown = (props: InferProps<typeof DropdownProps>) => {
                 textAlign='center'
                 borderTopWidth={1}
                 borderColor='negative'
-                bg={value && value.id === item.id ? 'primary' : 'transparent'}
+                bg={
+                  value && value.id === item.id
+                    ? props.bgActive || 'cherry100'
+                    : 'transparent'
+                }
                 onPress={() => onChange(item)}
               >
                 <Text
@@ -142,10 +132,8 @@ const Dropdown = (props: InferProps<typeof DropdownProps>) => {
           })}
         </StyledScrollView>
       )}
-    </>
+    </View>
   )
 }
-
-Dropdown.propTypes = DropdownProps
 
 export default Dropdown

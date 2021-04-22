@@ -7,8 +7,14 @@ import withStyledSystem, {
 } from '../functions/withStyledSystem'
 
 const StyledSwitch = withStyledSystem(Switch, (p: AttributesProps) => ({
-  trackColor: p.theme.colors[p.trackColor] || p.trackColor,
-  thumbColor: p.theme.colors[p.thumbColor] || p.thumbColor,
+  trackColor: {
+    true: p.theme.colors[p.trackColor] || p.trackColor,
+    false: p.theme.colors[p.trackColor] || p.trackColor,
+  },
+  thumbColor: {
+    true: p.theme.colors[p.thumbColor] || p.thumbColor,
+    false: p.theme.colors[p.thumbColor] || p.thumbColor,
+  },
   ios_backgroundColor: p.theme.colors[p.bg] || p.bg,
 }))
 

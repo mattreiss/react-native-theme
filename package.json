@@ -1,6 +1,6 @@
 {
   "name": "@mattreiss/react-native-theme",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React Native Theme",
   "homepage": "https://github.com/mattreiss/react-native-theme",
   "main": "lib/index.js",
