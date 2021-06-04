@@ -38,9 +38,15 @@ const ListProps = {
   leftOpenValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** display list with numColumns */
   numColumns: PropTypes.number,
+  /** list is refreshing */
+  refreshing: PropTypes.bool,
+  /** callback to refresh */
+  onRefresh: PropTypes.func,
 }
 
-const List = (props: InferProps<typeof ListProps>) => {
+type Props = InferProps<typeof ListProps> & typeof StyledSwipeList.propTypes
+
+const List = (props: Props) => {
   const data: any = props.children || props.data
   const size = data ? data.length : 0
   const renderItem = ({ item, index, separators }: any) => {

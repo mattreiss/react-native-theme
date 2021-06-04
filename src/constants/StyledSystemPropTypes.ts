@@ -3,6 +3,13 @@ import * as PropTypes from 'prop-types'
 // https://styled-system.com/table/
 
 export const ScaledPropTypes = {
+  /** child elements */
+  children: PropTypes.node,
+  /** style */
+  style: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.object,
+  ]),
   // Space
   /** margin */
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -73,6 +80,8 @@ export const ScaledPropTypes = {
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** maximum height */
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** opacity */
+  opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // Typography
   /** font size */
   fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

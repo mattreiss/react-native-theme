@@ -2,10 +2,10 @@ import PropTypes, { InferProps } from 'prop-types'
 import * as React from 'react'
 import { Keyboard, TextInput as RNTextInput } from 'react-native'
 
-import withStyledSystem, { ComponentProps } from '../functions/withStyledSystem'
+import withStyledSystem from '../functions/withStyledSystem'
 import Text from './Text'
 
-const Error = (props: ComponentProps & { children: any }) => (
+const Error = (props: any) => (
   <Text color='danger' textAlign='left' {...props}>
     {props.children}
   </Text>
@@ -40,6 +40,8 @@ const TextInputProps = {
   label: PropTypes.string,
   /** color for placeholder text */
   placeholderColor: PropTypes.string,
+  /** placeholder text */
+  placeholder: PropTypes.string,
 }
 
 const TextInput = React.forwardRef(

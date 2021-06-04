@@ -21,8 +21,12 @@ type DropdownProps = typeof Text.propTypes & {
   onChange: (value: object) => {}
   /** options  */
   options?: any
-  /** bacgroundColor of active selection */
+  /** backgroundColor of active selection */
   bgActive?: string
+  /** placeholder */
+  placeholder: string
+  /** label */
+  label: string
 }
 
 const Dropdown = (props: DropdownProps) => {
