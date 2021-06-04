@@ -3,13 +3,6 @@ import * as PropTypes from 'prop-types'
 // https://styled-system.com/table/
 
 export const ScaledPropTypes = {
-  /** child elements */
-  children: PropTypes.node,
-  /** style */
-  style: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.object),
-    PropTypes.object,
-  ]),
   // Space
   /** margin */
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

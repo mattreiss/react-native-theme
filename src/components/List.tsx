@@ -42,6 +42,10 @@ const ListProps = {
   refreshing: PropTypes.bool,
   /** callback to refresh */
   onRefresh: PropTypes.func,
+  /** component to render when list is empty */
+  ListEmptyComponent: PropTypes.node,
+  /** initialNumToRender */
+  initialNumToRender: PropTypes.number,
 }
 
 type Props = InferProps<typeof ListProps> & typeof StyledSwipeList.propTypes
@@ -89,7 +93,7 @@ const List = (props: Props) => {
       return props.keyExtractor(_item, index)
     }
     if (typeof _item === 'object' && _item.id !== null) {
-      return _item.id
+      return `${_item.id}`
     }
     return index.toString()
   }

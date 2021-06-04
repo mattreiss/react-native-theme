@@ -55,6 +55,7 @@ export default function App() {
     }
     inputRef.current.focus()
   }
+
   return (
     <StyledSafeAreaView flex={1}>
       <ThemeProvider
@@ -80,14 +81,12 @@ export default function App() {
                 { id: 2, value: 'second' },
               ]}
               renderItem={({ item }) => (
-                <>
-                  <MyImage
-                    alignSelf='center'
-                    name={item.value}
-                    width='xl5'
-                    height='xl5'
-                  />
-                </>
+                <MyImage
+                  alignSelf='center'
+                  name={item.value}
+                  width='xl5'
+                  height='xl5'
+                />
               )}
               refreshing={false}
               onRefresh={() => console.log('refresh')}
