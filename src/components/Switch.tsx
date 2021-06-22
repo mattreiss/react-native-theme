@@ -11,10 +11,7 @@ const StyledSwitch = withStyledSystem(Switch, (p: AttributesProps) => ({
     true: p.theme.colors[p.trackColor] || p.trackColor,
     false: p.theme.colors[p.trackColor] || p.trackColor,
   },
-  thumbColor: {
-    true: p.theme.colors[p.thumbColor] || p.thumbColor,
-    false: p.theme.colors[p.thumbColor] || p.thumbColor,
-  },
+  thumbColor: p.theme.colors[p.thumbColor] || p.thumbColor,
   ios_backgroundColor: p.theme.colors[p.bg] || p.bg,
 }))
 

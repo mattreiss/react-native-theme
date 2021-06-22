@@ -12,9 +12,9 @@ const shadowStyle = {
     width: 0,
     height: 3,
   },
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-  elevation: 5,
+  shadowOpacity: 0.15,
+  shadowRadius: 3,
+  elevation: 4,
 }
 
 const ViewProps = {
