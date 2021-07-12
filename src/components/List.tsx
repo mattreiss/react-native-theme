@@ -68,7 +68,11 @@ const List = (props: Props) => {
       p.mb = 'md' // add margin to bottom
     }
     if (typeof item === 'object' && item.type) {
-      return <View {...p}>{item}</View>
+      return (
+        <View key={index} {...p}>
+          {item}
+        </View>
+      )
     }
   }
   const renderHiddenItem = ({ item, index, separators }: any) => {
