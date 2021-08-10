@@ -50,9 +50,8 @@ const ListProps = {
 
 type Props = InferProps<typeof ListProps> & typeof StyledSwipeList.propTypes
 
-const List = (props: Props) => {
+const List = React.forwardRef((props: Props, ref) => {
   const data: any = props.children || props.data
-  const size = data ? data.length : 0
   const renderItem = ({ item, index, separators }: any) => {
     let p: any = {}
     let pKey = props.horizontal ? 'pl' : 'pt'
@@ -63,9 +62,6 @@ const List = (props: Props) => {
     }
     if (props.numColumns) {
       p.flex = 1 / props.numColumns
-    }
-    if (index + 1 === size) {
-      p.mb = 'md' // add margin to bottom
     }
     if (typeof item === 'object' && item.type) {
       return <View {...p}>{item}</View>
@@ -111,9 +107,10 @@ const List = (props: Props) => {
         renderItem,
         renderHiddenItem,
       }}
+      ref={ref}
     />
   )
-}
+})
 
 List.propTypes = ListProps
 
