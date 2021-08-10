@@ -35,7 +35,6 @@ const Button = (props: InferProps<typeof ButtonProps>) => {
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    opacity: props.disabled ? 0.5 : 1,
   }
   return (
     <StyledPressable
