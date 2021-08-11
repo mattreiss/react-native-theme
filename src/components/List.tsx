@@ -23,7 +23,7 @@ const ListProps = {
   /** render list of elements */
   children: PropTypes.node,
   /** space items horziontally */
-  horizontal: PropTypes.node,
+  horizontal: PropTypes.bool,
   /** add space between items if true */
   space: PropTypes.bool,
   /** callback function extract keys */
