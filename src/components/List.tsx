@@ -43,14 +43,16 @@ const ListProps = {
   /** callback to refresh */
   onRefresh: PropTypes.func,
   /** component to render when list is empty */
-  ListEmptyComponent: PropTypes.node,
+  ListEmptyComponent: PropTypes.any,
   /** initialNumToRender */
   initialNumToRender: PropTypes.number,
+  /** ref */
+  innerRef: PropTypes.any,
 }
 
 type Props = InferProps<typeof ListProps> & typeof StyledSwipeList.propTypes
 
-const List = React.forwardRef((props: Props, ref) => {
+const List = (props: Props) => {
   const data: any = props.children || props.data
   const renderItem = ({ item, index, separators }: any) => {
     let p: any = {}
@@ -107,10 +109,10 @@ const List = React.forwardRef((props: Props, ref) => {
         renderItem,
         renderHiddenItem,
       }}
-      ref={ref}
+      ref={props.innerRef}
     />
   )
-})
+}
 
 List.propTypes = ListProps
 

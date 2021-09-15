@@ -75,6 +75,31 @@ export default function App() {
               onChangeText={setInfo}
             />
             <List
+              data={[]}
+              renderItem={({ item }) => (
+                <MyImage
+                  alignSelf='center'
+                  name={item.value}
+                  width='xl5'
+                  height='xl5'
+                />
+              )}
+              refreshing={false}
+              onRefresh={() => console.log('refresh')}
+              ListEmptyComponent={() => (
+                <View
+                  justifyContent='center'
+                  alignItems='center'
+                  m='xs'
+                  p='xs'
+                  bg='bg1'
+                  borderRadius='md'
+                >
+                  <Text>No data in list</Text>
+                </View>
+              )}
+            />
+            <List
               space={true}
               data={[
                 { id: 0, value: 'main' },
