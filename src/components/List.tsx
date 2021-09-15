@@ -109,7 +109,6 @@ const List = (props: Props) => {
         renderItem,
         renderHiddenItem,
       }}
-      ref={props.innerRef}
     />
   )
 }
